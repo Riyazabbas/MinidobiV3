@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 LED Control</title>
+</head>
+<body>
+  <h1>Toggle LED</h1>
+  <button onclick="setLED('on')">Turn ON</button>
+
+  <script>
+    function setLED(state) {
+      fetch('https://minidobi.onrender.com/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: state })
+      })
+      .then(res => res.text())
+      .then(data => alert(data))
+      .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
