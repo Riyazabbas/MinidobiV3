@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ESP32 LED Control</title>
+  <title>Mini Dobi</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 100px;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <h1>Toggle LED</h1>
-  <button onclick="setLED('on')">Turn ON</button>
+  <h1>Mini Dobi</h1>
+  <button onclick="handlePayment()">Pay</button>
 
-  <script>
-    function setLED(state) {
-      fetch('https://minidobiv3.onrender.com/toggle', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: state })
-      })
-      .then(res => res.text())
-      .then(data => alert(data))
-      .catch(err => console.error(err));
-    }
-  </script>
+  <!-- 🔗 Link external JS -->
+  <script src="main.js"></script>
 </body>
 </html>
